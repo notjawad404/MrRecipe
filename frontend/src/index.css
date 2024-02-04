@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.medologybg {
+  background-color: rgba(43, 122, 120, 1);
+}
+
+.modalBackground {
+  background-color: rgba(200, 200, 200,0.5);
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.titleCloseBtn button {
+  background-color: transparent;
+  border: none;
+  font-size: 25px;
+  cursor: pointer;
+}
+.App {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: "Poppins", sans-serif;
+}
+.hrblack{
+  border: 0.5px solid black;
+}
+.modalContainer {
+  width: 450px;
+  height: 450px;
+  border-radius: 12px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  padding: 25px;
+}
+.medologyfont {
+  color: rgba(43, 122, 120, 1);
+}
+.boldfont {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+}
+
+.thinfont {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+}
+
+.medfont {
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+}
+textarea:focus, input:focus{
+  outline: none;
+}
