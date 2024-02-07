@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import '../App.css'
 
 import { useState } from "react";
+import { useNavigate } from 'react-router-dom';
 
 export default function Home() {
     const [recipes, setRecipes] = useState([]);
@@ -19,6 +20,13 @@ export default function Home() {
             .catch(error => {
                 console.error("Error fetching recipes:", error);
             });
+    }
+    const navigate = useNavigate();
+    const sendData = (label, uri) => {
+        console.log(label, uri);
+        navigate('/details', {state: {label, uri}});
+        
+
     }
 
     return (
@@ -44,8 +52,8 @@ export default function Home() {
                                 <span className='hover:text-wrap'>{recipe.label}</span>
                             </h2>
                             <Link to={recipe.url} target="_blank" rel="noopener noreferrer" className=' text-blue-600 px-2 py-1'>{recipe.source}</Link><br></br>
-                            <button className='py-2'>
-                                <Link to={`/details/${recipe.label}`} className=' bg-slate-800 text-white p-1 rounded-lg mx-2'>View Recipe</Link>
+                            <button onClick={()=>sendData(recipe.label, recipe.uri)} className=' bg-slate-800 text-white p-1 rounded-lg mx-2'>
+                                 View Recipe
                             </button>
                         </div>
                     </div>
