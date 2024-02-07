@@ -54,15 +54,15 @@ export default function Details() {
 
 
   return (
-    <div className="h-screen overflow-auto bg-slate-700">
+    <div className="h-screen bg-slate-700">
       <div>
         <h1>Welcome to Recipe App</h1>
       </div>
-      <div className="w-3/4 mx-auto bg-white shadow-2xl">
-        <div className="flex flex-row">
+      <div className=" w-3/4 mx-auto bg-white shadow-2xl">
+        <div className="">
             {recipes.map((recipe, index) => (
                 <div key={index} className="flex flex-row">
-                    <div>
+                    <div className="w-1/2 bg-gradient-to-r to-slate-600 from-red-700">
                     <h2>{recipe.label}</h2>
                     
                     <img src={recipe.image} alt={recipe.label} />
@@ -78,11 +78,11 @@ export default function Details() {
 
                     </div>
 
-                    <div>
+                    <div className=" w-1/2 bg-gradient-to-l to-slate-600 from-red-700 text-white">
                     {/* Ingredients */}
                     {showdata1 && (
-                        <div>
-                            <h3>Ingredients for {recipe.label}</h3>
+                        <div className=" h-fit overflow-y-auto">
+                            <h3>Ingredients</h3>
                             <ul>
                                 {recipe.ingredientLines.map((ingredient, idx) => (
                                     <li key={idx}>{ingredient}</li>
@@ -93,8 +93,8 @@ export default function Details() {
 
                     {/* Nutritional Info */}
                     {showdata2 && (
-                        <div>
-                            <h3>Nutritional Information for {recipe.label}</h3>
+                        <div className=" h-4/5 overflow-y-auto">
+                            <h3 className="text-center">Nutritional Information</h3>
                             <ul>
                                 {Object.entries(recipe.totalNutrients).map(([key, value]) => (
                                     <li key={key}>{value.label}: {value.quantity.toFixed(2)} {value.unit}</li>
@@ -106,7 +106,7 @@ export default function Details() {
                     {/* Health Labels */}
                     {showdata3 && (
                         <div>
-                            <h3>Health Labels for {recipe.label}</h3>
+                            <h3>Health Labels</h3>
                             <ul>
                                 {recipe.healthLabels.map((label, idx) => (
                                     <li key={idx}>{label}</li>
