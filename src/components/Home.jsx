@@ -93,8 +93,8 @@ export default function Home() {
                     </div>
                 ))}
             </div>
-            <div>
-                <button onClick={handleShowMore} className='bg-slate-800 text-white p-2 rounded-lg mx-2'>
+            <div className='flex justify-center items-center'>
+                <button onClick={handleShowMore} className=' bg-slate-300 text-black shadow-lg p-2 mx-1 my-2 rounded-3xl'>
                     Show More
                 </button>
             </div>
