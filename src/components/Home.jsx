@@ -16,7 +16,17 @@ export default function Home() {
         } else {
             getRandomRecipe();
         }
+        window.addEventListener("beforeunload", handleBeforeUnload);
+
+        
+        return () => {
+            window.removeEventListener("beforeunload", handleBeforeUnload);
+        };
     }, []);
+
+    const handleBeforeUnload = () => {
+        localStorage.removeItem('foodItem');
+    };
 
     const searchRecipe = async (foodItem, nextPage = 0) => {
         const apiId = '4221393d';
