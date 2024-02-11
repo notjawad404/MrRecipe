@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, RouterProvider, createRoutesFromElements } from "react-router-dom";
+import { createBrowserRouter, Route, RouterProvider, createRoutesFromElements } from "react-router-dom";
 import Favourites from "../Favourites";
 import UserProfile from "../auth/UserProfile";
 import Login from "../auth/Login";
@@ -9,7 +9,7 @@ import Home from "../Home";
 import ProtectedRoutes from "./ProtectedRoutes";
 import App from "../../App";
 
-const router = BrowserRouter(
+const router = createBrowserRouter(
     createRoutesFromElements(
 
         <Route path="/" element={<App/>}>
