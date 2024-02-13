@@ -2,7 +2,7 @@
 
 export default function Favourites() {
   return (
-    <div>
+    <div className="h-screen bg-red-500">
       
     </div>
   )

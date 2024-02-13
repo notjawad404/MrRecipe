@@ -19,9 +19,9 @@ const router = createBrowserRouter(
         <Route path="/register" element={<Register/>} />
         <Route path="/login" element={<Login/>} />
         <Route path="/user-profile" element={<UserProfile/>} />
-        <ProtectedRoutes>
+        <Route path="/" element={<ProtectedRoutes/>}>
         <Route path="/favourites" element={<Favourites />} />
-      </ProtectedRoutes>
+      </Route>
 
         <Route path="*" element={<h1>ABCS</h1>} />
         </Route>
