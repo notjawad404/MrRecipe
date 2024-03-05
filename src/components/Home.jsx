@@ -27,8 +27,7 @@ export default function Home() {
     const handleBeforeUnload = () => {
         localStorage.removeItem('foodItem');
     };
-
-    const searchRecipe = async (foodItem, nextPage = 0) => {
+    const searchRecipe = async (foodItem, overwrite = true, nextPage = 0) => {
         const apiId = '4221393d';
         const apiKey = '362a325c2c82392fc4b070a75c865d20';
         const pageSize = 10;
@@ -38,17 +37,26 @@ export default function Home() {
         try {
             const response = await fetch(url);
             const data = await response.json();
+            console.log(data);
     
-            setRecipes(prevRecipes => [...prevRecipes, ...data.hits.map(hit => hit.recipe)]);
+            if (!overwrite) {
+                setRecipes(prevRecipes => [...prevRecipes, ...data.hits.map(hit => hit.recipe)]);
+            } else {
+                setRecipes(data.hits.map(hit => hit.recipe));
+            }
         } catch (error) {
             console.error("Error fetching recipes:", error);
         }
     };
     
+    
+    
+    
     const handleShowMore = () => {
-        const nextPage = Math.ceil(recipes.length / 20);
-        searchRecipe(foodItem, nextPage);
+        const nextPage = Math.ceil(recipes.length / 10);
+        searchRecipe(foodItem, false, nextPage);
     };
+    
 
     const navigate = useNavigate();
     const sendData = (label, uri) => {
@@ -65,6 +73,7 @@ export default function Home() {
 
     const handleInputChange = (event) => {
         const inputValue = event.target.value;
+        console.log(inputValue);
         setFoodItem(inputValue);
         localStorage.setItem('foodItem', inputValue);
     };
@@ -74,7 +83,7 @@ export default function Home() {
             <h1 className="text-center font-semibold text-3xl text-white">Welcome to Mr Recipe</h1>
             <p className="text-center text-lg text-gray-300">Unlock Flavor, Fuel Health: Your Culinary Journey Starts Here!"</p>
             <div className="flex justify-center mt-10">
-                <form onSubmit={(e) => { e.preventDefault(); searchRecipe(foodItem); }}>
+                <form onSubmit={(e) => { e.preventDefault(); searchRecipe(foodItem, true); }}>
                     <input 
                         value={foodItem} 
                         onChange={handleInputChange} 
