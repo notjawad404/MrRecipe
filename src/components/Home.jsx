@@ -71,7 +71,8 @@ export default function Home() {
 
     return (
         <div className='h-screen overflow-y-auto bg-slate-700'>
-            <h1 className="text-center font-semibold text-3xl text-white">Welcome to Recipe App</h1>
+            <h1 className="text-center font-semibold text-3xl text-white">Welcome to Mr Recipe</h1>
+            <p className="text-center text-lg text-gray-300">Unlock Flavor, Fuel Health: Your Culinary Journey Starts Here!"</p>
             <div className="flex justify-center mt-10">
                 <form onSubmit={(e) => { e.preventDefault(); searchRecipe(foodItem); }}>
                     <input 
