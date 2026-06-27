@@ -17,7 +17,7 @@ export default function Details() {
         const fetchData = async () => {
             try{
                 if (label && uri) {
-                    const response = await fetch(`https://api.edamam.com/search?q=${label}&app_id=4221393d&app_key=362a325c2c82392fc4b070a75c865d20`);
+                    const response = await fetch(`https://api.edamam.com/search?q=${label}&app_id=${import.meta.env.VITE_EDAMAM_APP_ID}&app_key=${import.meta.env.VITE_EDAMAM_APP_KEY}`);
                     const data = await response.json();
                     const filterData = data.hits.map(hit => hit.recipe).filter(recipe => recipe.uri === uri);
                     setRecipes(filterData);
