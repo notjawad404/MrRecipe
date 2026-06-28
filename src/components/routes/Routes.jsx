@@ -1,5 +1,5 @@
 import { createBrowserRouter, Route, RouterProvider, createRoutesFromElements } from "react-router-dom";
-import Favourites from "../Favourites";
+// import Favourites from "../Favourites";
 import Details from "../Details";
 import Home from "../Home";
 import NotFoundPage from "../NotFoundPage";
