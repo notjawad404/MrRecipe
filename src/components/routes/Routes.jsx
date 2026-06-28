@@ -2,6 +2,7 @@ import { createBrowserRouter, Route, RouterProvider, createRoutesFromElements } 
 import Favourites from "../Favourites";
 import Details from "../Details";
 import Home from "../Home";
+import NotFoundPage from "../NotFoundPage";
 import App from "../../App";
 
 const router = createBrowserRouter(
@@ -10,8 +11,8 @@ const router = createBrowserRouter(
             <Route index element={<Home/>} />
             <Route path="/home" element={<Home/>} />
             <Route path="/details" element={<Details/>} />
-            <Route path="/favourites" element={<Favourites/>} />
-            <Route path="*" element={<h1>Page Not Found</h1>} />
+            {/* <Route path="/favourites" element={<Favourites/>} /> */}
+            <Route path="*" element={<NotFoundPage />} />
         </Route>
     )
 )
